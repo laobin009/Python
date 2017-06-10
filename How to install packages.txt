@@ -1,0 +1,23 @@
+For Pip and distribute
+Get File: get-pip.py
+run it
+PS C:\Python27> python get-pip.py
+then we will get pip, setuptool and Wheel
+setuptool is the better version of distribute
+then we pushd the directory to Scripts
+For nose
+PS C:\Python27\Scripts> .\pip install nose
+For virtualenv
+PS C:\Python27\Scripts> .\pip install virtualenv
+
+use pip uninstall numpy
+
+download numpy in wheel format from stackoverflow-saved thread
+use pip to install numpy in wheel format
+
+download scipy in wheel format from stackoverflow-saved thread
+use pip to install scipy in wheel format
+
+use pip to install matplotlib
+
+use pip to install pandas
