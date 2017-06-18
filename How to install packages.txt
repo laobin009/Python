@@ -24,3 +24,11 @@ Use pip to install scipy in wheel format
 
 Use pip to install matplotlib
 Use pip to install pandas
+
+use pip to install pandas_datareader.data by pip install pandas-datareader
+
+download spatsy in wheel format from http://www.lfd.uci.edu/~gohlke/pythonlibs/ and install
+download statsmodels in wheel format from http://www.lfd.uci.edu/~gohlke/pythonlibs/ and install
+
+download VCForPython27.msi from aka.ms/vcpython27 and click to install
+download arch-4.0.tar.gz (md5) from https://pypi.python.org/pypi/arch/4.0 and install by pip install files\arch-4.0.tar.gz
