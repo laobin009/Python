@@ -27,7 +27,7 @@ Use pip to install pandas
 
 use pip to install pandas_datareader.data by pip install pandas-datareader
 
-download spatsy in wheel format from http://www.lfd.uci.edu/~gohlke/pythonlibs/ and install
+download patsy in wheel format from http://www.lfd.uci.edu/~gohlke/pythonlibs/ and install
 download statsmodels in wheel format from http://www.lfd.uci.edu/~gohlke/pythonlibs/ and install
 
 download VCForPython27.msi from aka.ms/vcpython27 and click to install
