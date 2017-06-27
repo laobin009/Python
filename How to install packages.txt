@@ -32,3 +32,5 @@ download statsmodels in wheel format from http://www.lfd.uci.edu/~gohlke/pythonl
 
 download VCForPython27.msi from aka.ms/vcpython27 and click to install
 download arch-4.0.tar.gz (md5) from https://pypi.python.org/pypi/arch/4.0 and install by pip install files\arch-4.0.tar.gz
+
+Use pip to install seaborn
