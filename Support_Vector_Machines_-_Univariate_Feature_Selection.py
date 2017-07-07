@@ -1,0 +1,57 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import svm, datasets, feature_selection
+from sklearn.model_selection import cross_val_score
+from sklearn.pipeline import Pipeline
+
+digits = datasets.load_digits()
+y = digits.target
+# Throw away data, to be in the curse of dimension settings
+y = y[:200]
+X = digits.data[:200]
+n_samples = len(y)
+X = X.reshape((n_samples, -1))
+""""
+add 200 non-informative features
+""""
+""""
+np.random.random(n,m) return n rows and m columns random number
+in the half-open interval [0.0, 1.0).
+""""
+X = np.hstack((X, 2 * np.random.random((n_samples, 200))))
+
+""""
+f_classif is the way to calculate how important/related that feature is and
+represented by F Value. f_regression has similar function.
+SelectPercentile is how to select the already evaluated features,
+SelectKBest has similar function
+""""
+transform = feature_selection.SelectPercentile(feature_selection.f_classif)
+
+""""
+Pipeline: http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline
+""""
+clf = Pipeline([('anova', transform), ('svc', svm.SVC(C=1.0))])
+
+score_means = list()
+score_stds = list()
+percentiles = (1, 3, 6, 10, 15, 20, 30, 40, 60, 80, 100)
+
+for percentile in percentiles:
+    clf.set_params(anova__percentile=percentile)
+    # Compute cross-validation score using 1 CPU
+    this_scores = cross_val_score(clf, X, y, n_jobs=1)
+    """ append is good function""""
+    score_means.append(this_scores.mean())
+    score_stds.append(this_scores.std())
+
+plt.errorbar(percentiles, score_means, np.array(score_stds))
+
+plt.title(
+    'Performance of the SVM-Anova varying the percentile of features selected')
+plt.xlabel('Percentile')
+plt.ylabel('Prediction rate')
+plt.axis('tight')
+print score_means
+print score_stds
+plt.show()
